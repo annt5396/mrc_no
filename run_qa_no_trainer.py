@@ -94,7 +94,7 @@ def parse_args():
     parser.add_argument(
         "--dataset_name",
         type=str,
-        default=None,
+        default='squad_v2',
         help="The name of the dataset to use (via the datasets library).",
     )
     parser.add_argument(
@@ -119,7 +119,7 @@ def parse_args():
     parser.add_argument(
         "--max_seq_length",
         type=int,
-        default=384,
+        default=512,
         help=(
             "The maximum total input sequence length after tokenization. Sequences longer than this will be truncated,"
             " sequences shorter will be padded if `--pad_to_max_lengh` is passed."
@@ -134,6 +134,7 @@ def parse_args():
     parser.add_argument(
         "--model_name_or_path",
         type=str,
+        default='microsoft/mdeberta-v3-base',
         help="Path to pretrained model or model identifier from huggingface.co/models.",
         required=False,
     )
@@ -196,7 +197,7 @@ def parse_args():
     parser.add_argument(
         "--num_warmup_steps", type=int, default=0, help="Number of steps for the warmup in the lr scheduler."
     )
-    parser.add_argument("--output_dir", type=str, default=None, help="Where to store the final model.")
+    parser.add_argument("--output_dir", type=str, default='mrcv2', help="Where to store the final model.")
     parser.add_argument("--seed", type=int, default=41, help="A seed for reproducible training.")
     parser.add_argument(
         "--doc_stride",
